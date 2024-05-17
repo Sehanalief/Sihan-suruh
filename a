@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sihan Suruh - Your Service Provider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        nav {
+            background-color: #007bff;
+            padding: 10px 0;
+            text-align: center;
+            border-bottom: 2px solid #00468b;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #0056b3;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .service {
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .service:hover {
+            transform: translateY(-5px);
+        }
+        .service:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 123, 255, 0.5) 0%, rgba(0, 123, 255, 0.1) 100%);
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .service:hover:before {
+            opacity: 1;
+        }
+        .service h2 {
+            color: #007bff;
+            margin-top: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .provider {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .provider h3 {
+            color: #4caf50;
+            margin-top: 0;
+        }
+        .book-button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .book-button:hover {
+            background-color: #388e3c;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sihan Suruh - Your Service Provider</h1>
+    </header>
+    <nav>
+        <a href="#handyman">Handyman</a>
+        <a href="#tutor">Tutor</a>
+        <a href="#caretaker">Caretaker</a>
+        <a href="#babysitter">Babysitter</a>
+        <a href="#dogwalker">Dog Walker</a>
+        <a href="#petsitter">Pet Sitter</a>
+        <a href="#courier">Courier</a>
+    </nav>
+    <div class="container">
+        <div id="handyman" class="service pulse-animation">
+            <h2>Handyman</h2>
+            <div id="handyman-providers"></div>
+        </div>
+        <div id="tutor" class="service pulse-animation">
+            <h2>Tutor</h2>
+            <div id="tutor-providers"></div>
+        </div>
+        <div id="caretaker" class="service pulse-animation">
+            <h2>Caretaker</h2>
+            <div id="caretaker-providers"></div>
+        </div>
+        <div id="babysitter" class="service pulse-animation">
+            <h2>Babysitter</h2>
+            <div id="babysitter-providers"></div>
+        </div>
+        <div id="dogwalker" class="service pulse-animation">
+            <h2>Dog Walker</h2>
+            <div id="dogwalker-providers"></div>
+        </div>
+        <div id="petsitter" class="service pulse-animation">
+            <h2>Pet Sitter</h2>
+            <div id="petsitter-providers"></div>
+        </div>
+        <div id="courier" class="service pulse-animation">
+            <h2>Courier</h2>
+            <div id="courier-providers"></div>
+        </div>
+    </div>
+
+    <script>
+        // Simulated data for service providers
+        const providers = {
+            handyman: [
+                { name: "John Doe", rating: 4.5, hourlyRate: 20 },
+                { name: "Jane Smith", rating: 4.2, hourlyRate: 18 },
+            ],
+            tutor: [
+                { name: "Alice Johnson", rating: 4.8, hourlyRate: 25 },
+                { name: "Bob Brown", rating: 4.6, hourlyRate: 22 },
+            ],
+            caretaker: [
+                { name: "Emily Davis", rating: 4.9, hourlyRate: 30 },
+                { name: "Michael Wilson", rating: 4.7, hourlyRate: 28 },
+            ],
+            babysitter: [
+                { name: "Sarah Martinez", rating: 4.5, hourlyRate: 15 },
+                { name: "David Garcia", rating: 4.3, hourlyRate: 17 },
+            ],
+            dogwalker: [
+                { name: "Olivia Lopez", rating: 4.6, hourlyRate: 20 },
+                { name: "James Lee", rating: 4.4, hourlyRate: 18 },
+            ],
+            petsitter: [
+                { name: "Emma Taylor", rating: 4.7, hourlyRate: 25 },
+                { name: "Noah Clark", rating: 4.5, hourlyRate: 22 },
+            ],
+            courier: [
+                { name: "Sophia Rodriguez", rating: 4.8, hourlyRate: 20 },
+                { name: "Daniel Hernandez", rating: 4.6, hourlyRate: 18 },
+            ],
+        };
+
+        // Function to display providers for a specific service
+        function displayProviders(service) {
+            const serviceProviders = providers[service];
+            const providersContainer = document.getElementById(`${service}-providers`);
+            providersContainer.innerHTML = "";
+            serviceProviders.forEach(provider => {
+                const providerElement = document.createElement("div");
+                providerElement.classList.add("provider");
+                providerElement.innerHTML = `
+                    <h3>${provider.name}</h3>
+                    <p>Rating: ${provider.rating}</p>
+                    <p>Hourly Rate: $${provider.hourlyRate}</p>
+                    <button class="book-button" onclick="bookAppointment('${provider.name}', '${service}')">Book Now</button>
+                `;
+                providersContainer.appendChild(providerElement);
+            });
+        }
+
+        // Function to book an appointment
+        function bookAppointment(providerName, service) {
+            alert(`Booking appointment with ${providerName} for ${service}.`);
+        }
+
+        // Display providers for handyman service by default
+        displayProviders('handyman');
+    </script>
+</body>
+</html>
